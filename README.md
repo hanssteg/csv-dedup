@@ -39,7 +39,7 @@ be learned so feel free to use your preferred language of choice.
 - Try to handle unexpected CSV inputs as gracefully as possible.
 - Send your solution (link to a public Github repo, or a zip archive) to jake@kevala.care
 
-### Assumptions
+## Assumptions
 
 - The interface for the app will be the command line
 - The output file with have the same name as the input with `_deduped` added to the end
@@ -63,3 +63,20 @@ be learned so feel free to use your preferred language of choice.
 - The size of the input file will be small enough to keep in memory (say under 1GB)
   - if the encoding us US-ASCII each character take 1 byte, if the average row is 50 characters and the biggest company in the world had 1.5 million employees, that file would take a little over 75MB, so we should be good
 - The input file will be UTF-8 and have US ASCII characters
+
+## How to Run
+
+- This assumes you have Jave installed, I build this running with Java 11.0
+
+### Option 1 - use manve
+- Make sure you have Maven installed `mvn -version` (if you need to install look here http://maven.apache.org/install.html)
+- After cloning the git Repo
+    - Run `mvn clean verify` in the root directory of the project, this runs the tests and creates a jar
+    - A jar will be created in at `/target/csv-dedup-1.0-SNAPSHOT.jar`
+    - Run `java -jar /target/csv-dedup-1.0-SNAPSHOT.jar pathToCsvFile deduplicationMethod`
+    - The options for deduplication method are `email`, `phone`, and `email_or_phone`
+    
+### Option 2 - use the jar in the repo
+- There is a jar file at `jar/csv-dedup.jar`
+- There are sample inputs in `/jar/samples/`
+- From the `/jar` directory, execute the command `java -jar csv-dedup.jar samples/sample.csv email_or_phone` as a an example 
