@@ -68,12 +68,12 @@ be learned so feel free to use your preferred language of choice.
 
 - This assumes you have Jave installed, I build this running with Java 11.0
 
-### Option 1 - use manve
+### Option 1 - use Maven
 - Make sure you have Maven installed `mvn -version` (if you need to install look here http://maven.apache.org/install.html)
 - After cloning the git Repo
     - Run `mvn clean verify` in the root directory of the project, this runs the tests and creates a jar
     - A jar will be created in at `/target/csv-dedup-1.0-SNAPSHOT.jar`
-    - Run `java -jar /target/csv-dedup-1.0-SNAPSHOT.jar pathToCsvFile deduplicationMethod`
+    - Run `java -jar /target/csv-dedup-1.0-SNAPSHOT-jar-with-dependencies.jar pathToCsvFile deduplicationMethod`
     - The options for deduplication method are `email`, `phone`, and `email_or_phone`
     
 ### Option 2 - use the jar in the repo
