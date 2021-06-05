@@ -5,6 +5,7 @@ import output.OutputPathCreator;
 import resolver.EmailResolver;
 import resolver.PhoneNumberResolver;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 public class Main {
@@ -18,12 +19,21 @@ public class Main {
       EmailResolver emailResolver = new EmailResolver();
       PhoneNumberResolver phoneNumberResolver = new PhoneNumberResolver();
       EmployeeCSVDeduplicator employeeCSVDeduplicator = new EmployeeCSVDeduplicator();
+      BasicPhoneEmailDuplicateChecker duplicateChecker = new BasicPhoneEmailDuplicateChecker(inputArguments.getDeduplicationMethod());
 
       employeeCSVDeduplicator.createDeduplicatedCsv(inputArguments.getCsvFilePath(), outputPath,
-              inputArguments.getDeduplicationMethod(), emailResolver, phoneNumberResolver);
+              duplicateChecker, emailResolver, phoneNumberResolver);
     }
     catch (InvalidInputArgumentsException e) {
       System.out.println(e.getMessage());
+      System.exit(1);
+    } catch (IOException ex) {
+      System.out.println("Unexpected IO Error Occured: " + ex.getMessage());
+      ex.printStackTrace();
+      System.exit(1);
+    } catch (IllegalArgumentException ex) {
+      System.out.println("Bad CSV Format: " + ex.getMessage());
+      ex.printStackTrace();
       System.exit(1);
     }
   }

@@ -1,8 +1,7 @@
 package resolver;
 
-public class PhoneNumberResolver {
-
-  public String resolvePhoneNumber(String phoneNumber) {
-    return phoneNumber.replaceAll("[\\(\\)\\+\\-\\s]", "");
+public class PhoneNumberResolver implements Resolver{
+  public String resolve(String phoneNumber) {
+    return phoneNumber.replaceAll("[\\(\\)\\+\\-\\s]", "").toUpperCase();
   }
 }

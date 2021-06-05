@@ -1,8 +1,7 @@
 package resolver;
 
-public class EmailResolver {
-
-  public String resolverEmailString(String email) {
-    return email.toLowerCase();
+public class EmailResolver implements Resolver {
+  public String resolve(String email) {
+    return email.toLowerCase().trim();
   }
 }
