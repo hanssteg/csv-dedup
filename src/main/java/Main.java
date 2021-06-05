@@ -29,11 +29,9 @@ public class Main {
       System.exit(1);
     } catch (IOException ex) {
       System.out.println("Unexpected IO Error Occured: " + ex.getMessage());
-      ex.printStackTrace();
       System.exit(1);
     } catch (IllegalArgumentException ex) {
       System.out.println("Bad CSV Format: " + ex.getMessage());
-      ex.printStackTrace();
       System.exit(1);
     }
   }
