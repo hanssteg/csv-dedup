@@ -51,9 +51,8 @@ be learned so feel free to use your preferred language of choice.
     - Other thoughts
       - Could ignore all non numeric characters, but letters can possibly be valid
       - Could also remove 1 from the start of a number if it is 11 digits long (or other codes if we go international)
-- When writing output trimmed whitespace, adjusted phone numbers, and lowercase emails will be used~~~~
-- No validation or filtering will be done to detect or clean up invalid formats for email addresses or phone numbers
-  - i.e if you enter email `bademail!` and phone `?badphonenum`, those will end up in the output
+- Otherwise no validation is done on email and phone formats
+- When writing output trimmed whitespace, adjusted phone numbers, and lowercase emails will be used
 - In the case of a duplicate, the row to keep and the row to delete will be random
   - i.e. if the duplicate rows have different first and last name, one first/last name will be dropped
 - In certain cases an error can be returned without processing the file
