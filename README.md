@@ -72,11 +72,11 @@ be learned so feel free to use your preferred language of choice.
 - Make sure you have Maven installed `mvn -version` (if you need to install look here http://maven.apache.org/install.html)
 - After cloning the git Repo
     - Run `mvn clean verify` in the root directory of the project, this runs the tests and creates a jar
-    - A jar will be created in at `/target/csv-dedup-1.0-SNAPSHOT.jar`
+    - A jar will be created in at `target/csv-dedup-1.0-SNAPSHOT.jar`
     - Run `java -jar /target/csv-dedup-1.0-SNAPSHOT-jar-with-dependencies.jar pathToCsvFile deduplicationMethod`
     - The options for deduplication method are `email`, `phone`, and `email_or_phone`
     
-### Option 2 - use the jar in the repo
+### Option 2 - Use the jar provided in the repo if you do not want to set up Maven
 - There is a jar file at `jar/csv-dedup.jar`
 - There are sample inputs in `/jar/samples/`
 - From the `/jar` directory, execute the command `java -jar csv-dedup.jar samples/sample.csv email_or_phone` as a an example 
